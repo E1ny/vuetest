@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- infos的index: 获取所有index值
+                click的index: 当前触发事件的index
+            -->
+            <li :class="{active: currentIndex === index }" 
+            @click="liClick(index)" 
+            v-for="(item, index) in infos">
+            {{item}}
+        </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    infos: ["aa", "bb", "cc", "dd"],
+                    currentIndex: -1
+                }
+            },
+            methods: {
+                liClick(index) {
+                    // 这里的index, 传入的是数组遍历出来的index
+                    // 如果没定义, 无法访问
+                    // 同时Click事件的index也不能少
+                    // 用于判断哪个li触发的index
+                    // 因为methods会去data里面截取要访问的数据进行输出
+                    console.log("发生了点击", index)
+                    this.currentIndex = index
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

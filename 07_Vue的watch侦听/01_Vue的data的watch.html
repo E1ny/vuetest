@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <button @click="changeMsg">切换</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "11",
+                    info: {a: 22}
+                }
+            },
+
+            methods: {
+                changeMsg() {
+                    this.message = "ggg",
+                    this.info = {ey: 99}
+                }
+            },
+            // 想侦听哪个数据就将哪个数据写成函数
+            // 默认有两个参数, newValue/oldValue
+            // 对象的两个默认参数是proxy代理的形式
+            // 如果要拿原对象, 可以通过Vue.toRaw(newValue)获取  
+            watch: {
+                message(newValue, oldValue) {
+                    console.log("message变化",newValue, oldValue)
+                }, 
+                info(newValue, oldValue) {
+                    console.log("info变化",newValue, oldValue)
+
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

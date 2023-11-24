@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="change">修改</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: ["aa", "bb", "cc"]
+                }
+            },
+            methods: {
+                change() {
+                    // this会直接修改原宿主
+                    this.names = ["ee", "yy"]
+
+                    // 通过一些数组方法, 修改数组中的元素
+                        //向原数组推入新value
+                    this.names.push("why")
+                        //向原数组删除value
+                    this.names.pop()
+                        //分割数组:(index, 删除个数(0不删除, 1以上删除), 新增 )
+                        this.names.splice(2, 1, "gg")
+                        //排序, 修改原数组
+                        this.names.sort()
+                        //反转, 修改原数组 
+                        this.names.reverse()
+                        // ... 更多api访问: www.staging-cn.vuejs.org
+                
+                            //  item in iter  和 item of iter 表达意思一样
+                                // Vue3更新后新增的
+                    }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-for与v-bind:key绑定使用 
+            绑定key可以启用diff算法, 使元素/属性重排时
+            渲染更快, 效率更高
+        -->
+        <button @click="insertF">插入f</button>
+        <ul>
+            <li v-for="item in letters" :key="{{item}}"></li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    letters: ["a", "b", "c", "d", "e"]
+                }
+            },
+            methods: {
+                insertF() {
+                    this.letters.splice(2, 0, "f")
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html> 
