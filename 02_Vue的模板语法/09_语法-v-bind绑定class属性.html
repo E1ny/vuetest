@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 动态class可以写对象语法 -->
+        <h2 :class="isActive? 'active':''">{{message}}</h2>
+       
+        <!-- 对象语法的基本使用 -->
+        <h2 :class="{ active: isActive }">{{message}}</h2>
+
+        <!-- 对象语法的多个键值对 -->
+        <h2 :class="{ active: isActive, ee: true }">{{message}}</h2>
+
+        <!-- 动态绑定的class是可以和普通class同时使用 -->
+        <h2 class="aa" :class="{ active: isActive, ee: true }">{{message}}</h2>
+
+        <!-- 动态绑定class的函数化 -->
+        <h2 :class="getchange()">{{message}}</h2>
+        
+        <!-- 动态绑定数组class -->
+        <h2 :class="['aa', 'bb']"></h2>
+     
+     
+        <h2 :class="['aa', classname]"></h2>
+        <button @click="change">改变</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data: function() {
+                return {
+                    message: "1111",
+                    isActive: false,
+                    classname:"333"
+                }
+            },
+            methods: {
+                change: function() {
+                    this.isActive = !this.isActive
+                },
+                getchange: function() {
+                    return { active: isActive }
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
