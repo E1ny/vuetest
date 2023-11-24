@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 动态绑定style, 在后面跟上对象类型
+                key的命名可以是驼峰式命名,
+                或者加引号的"-"命名
+        -->
+        <h2 :style="{color: fontColor, fontSize: fontSize + 'px'}"></h2>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data: function() {
+                return {
+                    fontColor: "blue",
+                    fontSize: 30
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

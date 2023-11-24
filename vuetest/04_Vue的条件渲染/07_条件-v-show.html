@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <button @click="toggle">切换</button>
+        </div>
+        <!-- 
+            v-show: 不可与template一起使用
+                    不可与v-else一起使用 
+
+            v-show: 只是把元素隐藏(display: none), 而且template是不参与渲染的
+                    是不存在的
+                    v-if: 不满足条件时是把元素销毁
+                原生切换如果频繁, 推荐使用v-show
+                否则使用v-if
+         
+                -->
+        <div  v-show="isShowHre">
+            <a href="www.baidu.com">百度</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isShowHre: true
+                }
+            },
+            methods: {
+                toggle() {
+                    this.isShowHre = !this.isShowHre
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
+  <body>
+      <div id="app">
+        <h1 v-if="score > 90">1</h1>
+        <h2 v-else-if="score >80">2</h2>
+        <h3 v-else>3</h3>
+      </div>
+  
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  
+      <script>
+          const app = Vue.createApp({
+            data() {
+                return {
+                    score: 99
+                }
+            }
+          })
+          app.mount("#app")
+      </script>
+  </body>
+  </html>

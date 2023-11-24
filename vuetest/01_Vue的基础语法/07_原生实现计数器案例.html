@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>当前计数: <span class="counter"></span></h2>
+    <button class="add">+1</button>
+    <button class="sub">+1</button>
+
+    <script>
+        let counter = 100
+        const counterEl = document.querySelector(".counter")
+        const addBtnEl = document.querySelector(".add")
+        const subBtnEl = document.querySelector(".sub")
+
+        addBtnEl.onclick = function() {
+            counter++
+            counterEl.textContent = counter
+        }
+        subBtnEl.onclick = function() {
+            counter--
+            counterEl.textContent = counter
+        }
+        // 原生实现思路:
+        // 1.拿到元素
+        // 2.获取dom命令
+        // 3.监听点击
+        // 4.发生点击
+        // 5.将点击触发的事件传递给元素
+    </script>
+</body>
+</html>

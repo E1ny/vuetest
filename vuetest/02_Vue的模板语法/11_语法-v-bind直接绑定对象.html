@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bind绑定对象, 会直接把对象里面的属性遍历然后绑定到属性上面 -->
+        <h2 v-bind="infos">11111</h2>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data: function() {
+                return {
+                    infos: { name: "ee", age: 11}
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

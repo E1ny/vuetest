@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+
+                }
+            },
+            computed: {
+                // 语法糖写法
+                // change: {
+
+                // }
+                // 完整写法
+                change: {
+                    get: function() {},
+                    set: function(value){}
+                }
+            },
+            methods: {
+                setchange() {
+                    //获取change对象, 调用change的设置方法设置数值  
+                    this.change = "xxx"
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
