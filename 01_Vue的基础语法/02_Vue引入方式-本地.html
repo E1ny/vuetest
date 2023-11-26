@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./lib/vue.js"></script>
+    <div id="app"></div>
+    <!-- 从CDN引入Vue框架 -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script>
+        // 创建Vue
+        const app = Vue.createApp({
+            <!-- 创建一个template模板 -->
+            template: `<h2>Hello world </h2>`
+        })
+
+        // 必须挂载一个对象
+        app.mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 这里如果把v-for写在select标签里面, 就会出现三个选择框 -->
+        <select multiple size="3" v-model="fruits">
+            <option v-for="item in allFruits" :key="item.value" :value="item.value">{{item.text}}</option>
+        </select>
+        <h2>{{fruits}}</h2>
+        <br>
+        <template v-for="item in allHobbies" :key="item.value">
+            <!-- 这里:for 和 :id 绑不绑定同一个value都可以
+                但:value记得不要写错, 绑定一样是为了实现互斥, 否则会同时触发三个选项,
+            -->1
+            <label>
+                <input type="checkbox" v-model="hobbies" :value="item.value">{{item.text}}
+            </label>
+        </template>
+        <h2>{{hobbies}}</h2>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"> </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    allFruits: [
+                        {value: "apple", text: "苹果"},
+                        {value: "orange", text: "2"},
+                        {value: "banana", text: "3"}
+                    ],
+                    fruits: [],
+                    allHobbies: [
+                        {value: "swimming", text: "游泳"},
+                        {value: "reading", text: "阅读"},
+                        {value: "coding", text: "编码"}
+                    ],
+                    hobbies: []
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

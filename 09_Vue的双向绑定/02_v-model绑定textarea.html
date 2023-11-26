@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- form表单向服务器交的时候需要绑定一个name
+        但是在textarea里面因为v-model双向绑定,所以不需要
+            -->
+      <!-- <form action="">
+        <input type="text" name="" />
+      </form> -->
+      <textarea cols="30" rows="10" v-model="content"></textarea>
+      <p>输入: {{content}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            content:""
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

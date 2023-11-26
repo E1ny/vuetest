@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- input的id和label-for绑定,可以用于响应选中input中的文本
+        
+            v-model绑定checkbox:
+            单选框: v-model绑定的为 布尔值(无论赋予什么初始value触发后都会变布尔值)
+            复选框: 每一个选项都需要绑定一个value用于被v-model触发时识别
+         -->
+        <div>
+            <label for="agree">
+                <input id="agree" type="checkbox" v-model="isAgree">
+            </label>
+            <h2>{{isAgree}}</h2>
+        </div>
+
+        <div>
+            <label for="one">
+                <input id="one" type="checkbox" value="one" v-model="hobbies"> 1
+            </label>
+            <label for="two">
+                <input id="two" type="checkbox" value="two" v-model="hobbies"> 2
+            </label>
+            <label for="three">
+                <input id="three" type="checkbox" value="three" v-model="hobbies"> 3
+            </label>
+            <h2>{{hobbies}}</h2>
+        </div> 
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"> </script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    isAgree: false,
+                    hobbies: []
+                }
+            },
+            
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-model: 实际上就是将v-bing和v-on结合在一起使用实现的双向绑定 -->
+        <!-- <input type="text" value="message" @input="changeMsg"> -->
+        <!-- <input type="text" v-model="message"> -->
+        <!-- 当触发v-model绑定的数值/属性/元素/事件时,
+            会换传给该数值/属性/元素/事件, 这时候可以到methods里面
+            定义一个方法接收他然后展示出来
+        -->
+        <label for="account">
+            账号: <input id="account"  type="text"  v-model="account">
+        </label>
+        <label for="password">
+            账号: <input id="password" type="password"  v-model="password">
+        </label>
+        <button @click="clicklogin">登录</button>
+        <h2>{{message}}</h2>
+   
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message:"1111",
+                    account: "",
+                    password: ""
+                }
+            },
+            methods: {
+                changeMsg(event) {
+                    this.message = event.target.value
+                },
+                clicklogin() {
+                    const account = this.account
+                    const password = this.password
+                
+                    console.log(account, password)
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
