@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="product"></template>
+    <template id="nav">
+        <product-item></product-item>
+    </template>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+        // 创建组件app
+        const ProductItem = {
+            template: "#product",
+            data() {
+                return {
+                    message: 1111
+                }
+            }
+        }
+
+
+        const app = Vue.createApp({
+            // 全局里面注册局部组件
+            component: {
+                ProductItem,
+                HomeNav: {
+                    template: "#nav",
+                    // 局部组件里面注册另一个局部组件, 若不注册无法使用
+                    component: {
+                        ProductItem
+                    }
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

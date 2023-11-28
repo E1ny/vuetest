@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1. lazy: 绑定change事件
+                只有触发事件才会执行1
+        -->
+        <input type="text" v-model.lazy="message">
+        <h2>message: {{message}}</h2>
+
+        <!-- 2. number: 自动将内容转换成数字类型
+        -->
+        <input type="text" v-model.number="conter">
+        <h2>counter: {{counter}}--{{typeof counter}}</h2>
+  
+        <!-- 3. trim: 去除首尾空格 -->
+        <input type="text" v-model.trim="conter">
+        <h2>content: {{content}}</h2>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "1111",
+                    counter: "2222",
+                    content: "3333"
+                }
+            },
+            watch: {
+                // text文本框默认不会检测空格
+                // 利用watch监听内容变化可以输出空格
+                content(newValue) {
+                    console.log(newValue)
+                }
+            },
+            methods: {}
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

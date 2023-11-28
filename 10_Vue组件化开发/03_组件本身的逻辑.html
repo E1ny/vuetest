@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <home-nav></home-nav>
+    </div>
+
+    <template id="nav">
+        <h2>导航</h2>
+        <h2>{{message}}</h2>
+        <button @click="change">点击</button>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const App = {}
+        const app = Vue.createApp()
+
+        // 每个组件都可以有组件的data, watch, methods方法
+        // 组件名称命名方式: 驼峰/横杆
+        app.component("home-nav", {
+            template: "#nav",
+            data() {
+                return {
+                    message: "3333"
+                }
+            },
+            methods: {
+                change() {
+                    this.message = "6666"
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>

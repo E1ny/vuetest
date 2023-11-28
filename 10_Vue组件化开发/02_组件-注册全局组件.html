@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <product-item></product-item>
+    </div>
+    <!-- 组件product-item的模板 -->
+    <template id="item">
+        <div class="product">
+            <h2>1</h2>
+            <div>2222: <span>ddddd</span></div>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        // 1. 组件: App组件(根组件)
+        const App = {}
+ 
+
+        // 创建App
+        const app = Vue.createApp(App)
+
+        // 开发product-item组件对象
+        const productItem = {
+            template: "#item"
+        }
+
+
+        // 注册组件
+        // 两个参数: 参数名称(自命名, 用于引入标签), 参数对象
+         app.component("product-item", productItem)
+
+
+        // 挂载App
+        app.mount("#app")
+
+
+    </script>
+    <!-- 
+        整体思路: 
+        1.创建App
+        2.创建一个根组件
+        3.挂载App
+        4.创建全局组件
+        5.创建全局组件挂载的对象(对象里面定义模板)
+        6.创建组件对象的模板 (模板定义内容)
+        7.通过标签使用组件对象
+     -->
+</body>
+</html>

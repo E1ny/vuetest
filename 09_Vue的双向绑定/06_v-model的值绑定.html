@@ -16,7 +16,7 @@
         <template v-for="item in allHobbies" :key="item.value">
             <!-- 这里:for 和 :id 绑不绑定同一个value都可以
                 但:value记得不要写错, 绑定一样是为了实现互斥, 否则会同时触发三个选项,
-            -->1
+            -->
             <label>
                 <input type="checkbox" v-model="hobbies" :value="item.value">{{item.text}}
             </label>
