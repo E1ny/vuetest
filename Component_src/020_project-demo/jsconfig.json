@@ -1,0 +1,27 @@
+//  该文件作用:用以给VScode读取, 以获得更好提示
+
+{
+  "compilerOptions": {
+    // 匹配的模块和规则 
+    "target": "es5",
+    "module": "esnext",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    // 路径提示
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "utils/*": [
+        "src/utils/*"
+      ]
+    },
+    // dom的代码提示
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  }
+}

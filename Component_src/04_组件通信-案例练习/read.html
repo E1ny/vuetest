@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Tab.vue:
+        emit: ["TabClick"]
+        props: {
+            title: {
+                type: array,
+                default: () => {}
+            }
+        },
+        data() {
+            return {
+                currentIndex: 0
+            }
+        },
+        methods: {
+            addClick(index) {
+                this.currentIndex = index
+                this.$emit("TabClick", index)
+            }
+        }
+
+        <div class="tab-control">
+            <template v-for="(item, index) in title" 
+            :key="item">
+            <div class="tab-control-item"
+                @click="addClick(index)"
+                :class="{active: currentIndex === index}"
+            >{{ item }}
+            </div>
+    
+            style:
+            .tab-control{},
+            .tab-control-item{},
+            .atctive{},
+            .tab-control-item span{}
+
+
+
+            App.vue:
+                <div class="app">
+                    <tab-control title="['1', '2', '3']"
+                    @TabClick="change"
+                    ></tab-control>
+                </div>
+
+                import TabControl from './xxx.vue'
+                components: {
+                    TabControl
+                }
+                data(){
+                    return {
+                        pageContent: [
+                            '页面数据1',
+                            '2',
+                            '3'
+                        ],
+                        currentIndex: 0
+                    }
+                },
+                methods: {
+                    change(index) {
+                        this.currentIndex = index
+                    }
+                }
+
+
+            -->
+</body>
+</html>
