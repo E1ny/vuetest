@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        import 组件 from 组件.app
+        components: { 组件 }
+        <组件 v-model:自定义事件名称="data参数">
+        
+        组件.app:
+        <button @click="事件" />
+        emits: ["update:自定义事件名称"]
+        props: [
+            自定义事件: {
+                type:
+                default:
+            }
+        ],
+        methods: {
+            事件(): {
+                this.$emit("update:自定义事件名称", 参数)
+            }
+        }
+
+     -->
+</body>
+</html>
